@@ -1,6 +1,6 @@
 irfanstore-apigateway
 =======================
-This is the sample API Gateway written for the Pivotal Cloud Foundry. This application uses the Spring Zuul which implements the Netflix Zuul. API Gateway calls the product-service. It implements the filters, routing and Hystrix fallback.
+This is the sample API Gateway written to run in the Pivotal Cloud Foundry. This application uses the Spring Zuul which implements the Netflix Zuul. API Gateway calls the product-service. It implements the filters, routing and Hystrix fallback.
 
 This application uses following features / services in the Pivotal Cloud Foundry:
 

@@ -1,0 +1,36 @@
+spring:
+  application:
+    name: irfanstore-apigateway
+  profiles:
+      active: cloud
+  rabbitmq:
+    addresses:  ${vcap.services.ostore-rabbitmq.credentials.uri}
+
+server:
+  error:
+    whitelabel:
+      enabled: false
+
+security:
+  basic:
+    enabled: false
+
+management:
+  security:
+    enabled: false
+
+zuul:
+  ignoredServices: '*'
+  routes:
+    product:
+      path: /product-service/**
+      serviceId: product-service
+    productprice:
+      path: /product-price-service/**
+      serviceId: product-price-service
+
+# By default all URL can be passed through the Zuul API Gateway.
+# To restrict to all and provide to the specific services only (product-service and product-price-service in our case) configure the route in the zuul section above.
+
+# See the details of Zuul gateway here:
+# https://cloud.spring.io/spring-cloud-netflix/multi/multi__router_and_filter_zuul.html

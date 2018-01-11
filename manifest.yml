@@ -1,0 +1,20 @@
+---
+applications:
+- name: irfanstore-apigateway
+  memory: 1G
+  instances: 1
+  random-route: false
+  timeout: 180
+  path: ./target/irfanstore-apigateway-1.0-SNAPSHOT.jar
+  services:
+    - ostore-service-registry
+    - ostore-rabbitmq
+
+  env:
+    SPRING_PROFILES_ACTIVE: cloud
+
+
+#Bind to the following services:
+
+# service registry (name: ostore-service-registry)
+# Rabbitmq (for zipkin) (name: ostore-rabbitmq)
